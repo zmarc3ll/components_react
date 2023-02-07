@@ -1,16 +1,23 @@
 import { Component, ReactNode } from "react";
 
 interface Props{
-    szoveg: string;
+    message: string;
 }
 
-export default class ErrorMessage extends Component {
+export default class ErrorMessage extends Component<Props> {
     render(): ReactNode {
-        return <div> 
-            {
-                this.props.szoveg=''? '<p style={{color: "red"}}>this.props.szoveg<p/>' : '<p style={{color: "green"}}>Minden OK</p>';
-            }
-
-        </div>
+        let tartalom = 'Minden OK';
+        let stilus = {
+            color: 'green',
+            backgroundColor: 'lightgreen'
+        };
+        if (this.props.message != '') {
+            tartalom = this.props.message;
+           stilus = {
+            color: 'red',
+            backgroundColor: '#ffd1d1'
+           }
+        }
+        return  <p style={stilus}>{tartalom}</p>
     }
 }

@@ -3,6 +3,7 @@ import './App.css';
 import Footer from './component/Footer';
 import { Product as ProductInterface} from './Product';
 import Product from './component/Product';
+import ErrorMessage from './component/ErrorMessage';
 
 interface State {
   products: ProductInterface[];
@@ -40,6 +41,8 @@ export default class App extends Component<{}, State>{
       </tbody>
       </table>
       <Footer/>
-    </div>
+      <ErrorMessage message='Message'/>
+      <ErrorMessage message='' />
+      </div>
   }
 }
